@@ -6,7 +6,7 @@
 /*   By: oyurchen <oyurchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:08:26 by oyurchen          #+#    #+#             */
-/*   Updated: 2024/03/01 20:29:24 by oyurchen         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:57:13 by oyurchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,35 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 		a = a->next;
 	}
 	
+}
+
+void	set_cheapest(t_stack_node *stack)
+{
+	long			cheapest_val;
+	t_stack_node	*cheapest_node;
+	
+	if (!stack)
+		return ;
+
+	cheapest_val = LONG_MAX;
+
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_val)
+		{
+			cheapest_val = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest_node->cheapest = true;
+}
+
+void	init_nodes_a(t_stack_node *a, t_stack_node *b)
+{
+	current_index(a);
+	current_index(b);
+	set_target_a(a, b);
+	cost_analysis_a(a, b);
+	set_cheapest(a);
 }

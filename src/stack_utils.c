@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oleg <oleg@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oyurchen <oyurchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 10:39:52 by oleg              #+#    #+#             */
-/*   Updated: 2024/02/07 17:12:38 by oleg             ###   ########.fr       */
+/*   Updated: 2024/05/08 17:50:47 by oyurchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,24 @@ t_stack_node	*find_max(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (max_node);
+}
+
+t_stack_node	*find_min(t_stack_node *stack)
+{
+	long			min;
+	t_stack_node	*min_node;
+	
+	if(!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while(stack)
+	{
+		if(stack->nbr < min)
+		{
+			min = stack->nbr;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
 }

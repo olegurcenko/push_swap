@@ -6,7 +6,7 @@
 /*   By: oyurchen <oyurchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:08:26 by oyurchen          #+#    #+#             */
-/*   Updated: 2024/03/04 17:57:13 by oyurchen         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:50:12 by oyurchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	set_cheapest(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_node->is_cheapest = true;
 }
 
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)

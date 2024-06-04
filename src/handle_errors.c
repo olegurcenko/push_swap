@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oleg <oleg@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oleh <oleh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 10:52:39 by oleg              #+#    #+#             */
-/*   Updated: 2024/02/03 18:02:01 by oleg             ###   ########.fr       */
+/*   Updated: 2024/06/04 01:03:50 by oleh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	error_duplicate(t_stack_node *a, int n)
 		return (0);
 	while (a)
 	{
-		if (a->nbr == n);
+		if (a->nbr == n)
 			return (1);
 		a = a->next;
 	}

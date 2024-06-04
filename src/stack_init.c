@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyurchen <oyurchen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oleh <oleh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 10:24:38 by oleg              #+#    #+#             */
-/*   Updated: 2024/05/08 17:55:52 by oyurchen         ###   ########.fr       */
+/*   Updated: 2024/06/04 01:05:47 by oleh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void append_node(t_stack_node ** stack, int n)
 		return ;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return (NULL);
+		return ;
 	node->next = NULL;
 	node->nbr = n;
 	if (!stack)
@@ -91,35 +91,10 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
-		if (error_duplicate(*a, (int)n));
+		if (error_duplicate(*a, (int)n))
 			free_errors(a);
 		append_node(a, (int)n);
 		i++;
-	}
-}
-
-static void	append_node(t_stack_node **stack, int n)
-{
-	t_stack_node	*node;
-	t_stack_node	*last_node;
-
-	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->nbr = n;
-	if (!(*stack))
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last_node = find_last(stack);
-		last_node->next = node;
-		node->prev = last_node;
 	}
 }
 
